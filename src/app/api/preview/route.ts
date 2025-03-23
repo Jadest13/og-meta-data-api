@@ -20,7 +20,6 @@ export async function GET(request: NextRequest) {
       ogUrl: result["og:url"],
       ogImage: result["og:image"] || result["image"],
       ogDescription: result["og:description"] || result["description"],
-      result: result,
     };
 
     return await NextResponse.json(ogData, {

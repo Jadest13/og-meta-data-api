@@ -12,7 +12,6 @@ interface OgData {
 const fetchUrlPreview = async (url: string) => {
   const res = await fetch(`/api/preview?url=${encodeURI(url)}`);
   const data = await res.json();
-  console.log(data);
   return data;
 };
 
