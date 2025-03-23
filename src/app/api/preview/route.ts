@@ -10,10 +10,13 @@ export async function GET(request: NextRequest) {
 
     const result: urlMetadata.Result = await urlMetadata(url, {
       cache: "force-cache",
+      requestHeaders: {
+        "User-Agent": "Googlebot",
+      },
     });
 
     const ogData = {
-      ogTitle: result["og:title"],
+      ogTitle: result["og:title"] || result["title"],
       ogUrl: result["og:url"],
       ogImage: result["og:image"] || result["image"],
       ogDescription: result["og:description"] || result["description"],
