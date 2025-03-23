@@ -24,7 +24,12 @@ export async function GET(request: NextRequest) {
 
     return await NextResponse.json(ogData, {
       status: 200,
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
     });
   } catch {
     return NextResponse.json(
